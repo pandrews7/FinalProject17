@@ -39,6 +39,7 @@ else:
 #no matter what the game will be played
 
 #a while loop was created for the lists of faces, cards, and suits
+
 while True:
     import random
 
@@ -67,6 +68,7 @@ while True:
 
 #This function is to play with the value of the ace so it benefits the player the most
 #At first it counts the ace as an 11, but if you go over 21 it will count the ace as a 1
+
     def score_hand(hand):
         score = 0
         aces = 0
@@ -82,6 +84,7 @@ while True:
         return score
 
 #this function will tell you what cards you were dealt and there values added together
+
     def display_hand(hand):
         out = ""
         for card in hand:
@@ -92,6 +95,7 @@ while True:
         return out
 
 #defining a function to take the top card
+
     def take_top_card():
         c = cards[0]
         cards.pop(0)
@@ -99,6 +103,7 @@ while True:
 
 #this function will adjust the value from the other card you get
 #this uses the take top card function to get a new card and add the value from that card to your hand
+
     def create_opening_hand():
         hand = []
         hand.append(take_top_card())
@@ -110,7 +115,9 @@ while True:
     random.shuffle(cards)
 
     hand = create_opening_hand()
+
     #created a while loop
+
     while True:
         #this will print your score
         print(display_hand(hand))
@@ -131,6 +138,7 @@ while True:
 
 
 #this set of lines will deal with the automatic hands for the dealer
+
     dealer = create_opening_hand()
     while True:
         #if the dealer's score is lower than 17 the dealer will hit
@@ -139,26 +147,31 @@ while True:
             #if the score of the dealer is more than 21 it will print he busted and you will win.
             if score_hand(dealer) > 21:
                 print("Dealer Busted. You won!")
+                break
         else:
             break
 
 #this will print the dealer's cards and respective value
+
     print('\n')
     print("Dealer's hand:")
     print(display_hand(dealer))
 
 #this will print your hand with the value from the cards
+
     print('\n')
     print("Your hand:")
-    print(display_hand(dealer))
+    print(display_hand(hand))
 
 #this will just compare your score and the dealer's
 #it will print the results if you win, lose, or tie
+
     if score_hand(hand) > score_hand(dealer):
         print("You won!")
     elif score_hand(hand) == score_hand(dealer):
         print("You tied... and tie goes to the dealer")
     else:
         print("You lost!")
+
 #this code will continue to run until you bust in a game
 #and that's a good game of blackjack

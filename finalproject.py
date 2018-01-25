@@ -166,7 +166,7 @@ while True:
 #this will just compare your score and the dealer's
 #it will print the results if you win, lose, or tie
 
-    if score_hand(hand) > score_hand(dealer):
+    if score_hand(hand) > score_hand(dealer) or (score_hand(dealer)>21 and score_hand(hand)<=21):
         print("You won!")
     elif score_hand(hand) == score_hand(dealer):
         print("You tied... and tie goes to the dealer")
